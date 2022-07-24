@@ -1,0 +1,12 @@
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\bin\Debug\net6.0\Lemonade.Domain.Shared.deps.json
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\bin\Debug\net6.0\Lemonade.Domain.Shared.dll
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\bin\Debug\net6.0\Lemonade.Domain.Shared.pdb
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.csproj.AssemblyReference.cache
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.AssemblyInfoInputs.cache
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.AssemblyInfo.cs
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.csproj.CoreCompileInputs.cache
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.dll
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\refint\Lemonade.Domain.Shared.dll
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\Lemonade.Domain.Shared.pdb
+C:\Users\user\RiderProjects\LemonadeCanonade\Lemonade.Domain.Shared\obj\Debug\net6.0\ref\Lemonade.Domain.Shared.dll
