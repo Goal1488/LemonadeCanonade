@@ -1,5 +1,5 @@
-﻿using Lemonade.Domain.CustomerAggregate;
-using Lemonade.Domain.OrderAggregate;
+﻿using Lemonade.Domain;
+using Lemonade.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lemonade.Persistence;
@@ -10,25 +10,24 @@ public sealed class LemonadeContext : DbContext
     /// <summary>
     /// </summary>
     /// <param name="options"></param>
-    public LemonadeContext(DbContextOptions options)
-        : base(options)
+    public LemonadeContext(DbContextOptions options) : base(options)
     {
     }
 
     /// <summary>
     ///     Gets or sets Accounts
     /// </summary>
-    public DbSet<Domain.Lemonade> Lemonades { get; set; }
+    public DbSet<Domain.Entities.Lemonade> Lemonades { get; set; }
 
     /// <summary>
     ///     Gets or sets Credits
     /// </summary>
-    public DbSet<OrderAggregate> Credits { get; set; }
+    public DbSet<Order> Orders { get; set; }
 
     /// <summary>
     ///     Gets or sets Debits
     /// </summary>
-    public DbSet<CustomerAggregate> Customer { get; set; }
+    public DbSet<Customer> Customers { get; set; }
 
     /// <summary>
     /// </summary>

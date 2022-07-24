@@ -1,13 +1,13 @@
-namespace Lemonade.Domain.OrderAggregate;
+namespace Lemonade.Domain.Entities;
 
-public class OrderDetail
+public class OrderDetail : IEntity
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     
     public int Quantity { get; set; }
     public LemonadeSize Size { get; set; }
     public int Price { get; set; }
     
-    public int LemonadeId { get; set; }
+    public Guid LemonadeId { get; set; }
     public int OrderId { get; set; }
 }

@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\RiderProjects\\LemonadeCanonade\\Lemonade.Domain\\Lemonade.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\user\\RiderProjects\\Australia\\LemonadeCanonade\\Lemonade.Domain\\Lemonade.Domain.csproj",
       "projectName": "Lemonade.Domain",
-      "projectPath": "C:\\Users\\user\\RiderProjects\\LemonadeCanonade\\Lemonade.Domain\\Lemonade.Domain.csproj",
+      "projectPath": "C:\\Users\\user\\RiderProjects\\Australia\\LemonadeCanonade\\Lemonade.Domain\\Lemonade.Domain.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\RiderProjects\\LemonadeCanonade\\Lemonade.Domain\\obj\\",
+      "outputPath": "C:\\Users\\user\\RiderProjects\\Australia\\LemonadeCanonade\\Lemonade.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\RiderProjects\\LemonadeCanonade\\Lemonade.Domain.Shared\\Lemonade.Domain.Shared.csproj": {
-              "projectPath": "C:\\Users\\user\\RiderProjects\\LemonadeCanonade\\Lemonade.Domain.Shared\\Lemonade.Domain.Shared.csproj"
+            "C:\\Users\\user\\RiderProjects\\Australia\\LemonadeCanonade\\Lemonade.Domain.Shared\\Lemonade.Domain.Shared.csproj": {
+              "projectPath": "C:\\Users\\user\\RiderProjects\\Australia\\LemonadeCanonade\\Lemonade.Domain.Shared\\Lemonade.Domain.Shared.csproj"
             }
           }
         }
@@ -89,7 +89,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

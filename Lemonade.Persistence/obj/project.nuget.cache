@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Jj8gapnCUYVGHqIEF26KR/AlVFe1xxy9i9TX6hpnz7iDADPw2U2EKAd1X35xrirSQQxtfAPKXBmjuelV9/+8g==",
+  "dgSpecHash": "B12mVc6NJLt6NeomHT+G75PyEDnBEZMox3sArvolUhDn81Si/7AuGQas6HsuUyx2T7mBgvICUyFo4I/7paPqRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\RiderProjects\\LemonadeCanonade\\Lemonade.Persistence\\Lemonade.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\user\\RiderProjects\\Australia\\LemonadeCanonade\\Lemonade.Persistence\\Lemonade.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",

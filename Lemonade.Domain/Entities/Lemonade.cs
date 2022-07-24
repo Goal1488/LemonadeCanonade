@@ -1,15 +1,15 @@
 ﻿using Lemonade.Domain.Shared;
 
-namespace Lemonade.Domain;
+namespace Lemonade.Domain.Entities;
 
-public class Lemonade : IAggregateRoot
+public class Lemonade : IEntity
 {
     public Lemonade(string name)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
 
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     public string Name { get; private set; }
 
