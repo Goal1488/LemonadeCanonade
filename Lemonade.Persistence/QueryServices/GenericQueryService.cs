@@ -4,6 +4,8 @@ using Lemonade.Application.Queries;
 using Lemonade.Domain;
 using Lemonade.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
+using Sieve.Models;
+using Sieve.Services;
 
 namespace Lemonade.Persistence.QueryServices;
 
@@ -14,33 +16,44 @@ public class GenericQueryService<TEntity, TModel>
     protected readonly LemonadeContext LemonadeContext;
 
     private readonly IMapper<TEntity, TModel> _mapper;
+    private readonly ISieveProcessor _sieveProcessor;
 
-    protected GenericQueryService(LemonadeContext dbContext, IMapper<TEntity, TModel> mapper)
+    protected GenericQueryService(LemonadeContext dbContext,
+        IMapper<TEntity, TModel> mapper,
+        ISieveProcessor sieveProcessor)
     {
         LemonadeContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        _sieveProcessor = sieveProcessor;
     }
 
-    public Task<TModel> GetById(Guid id)
+    public Task<TModel> GetAsync(Guid id, CancellationToken cancellationToken)
     {
-        return GetAsync(x => x.Id == id);
+        return GetAsync(x => x.Id == id, cancellationToken);
     }
-    
-    public virtual async Task<TModel?> GetAsync(Expression<Func<TEntity, bool>> predicate)
+
+    public virtual async Task<TModel?> GetAsync(Expression<Func<TEntity, bool>> predicate,
+        CancellationToken cancellationToken)
     {
-        var aggregateRoot = await GetAggregateQueryable().FirstOrDefaultAsync(predicate);
+        var aggregateRoot = await GetAggregateQueryable().FirstOrDefaultAsync(predicate, cancellationToken);
 
         return aggregateRoot == null ? default : _mapper.Map(aggregateRoot);
     }
 
-    public virtual async Task<ListResultsDto<TModel>> GetListAsync(Expression<Func<TEntity, bool>> predicate)
+    public virtual async Task<ListResultsDto<TModel>> GetAsync(SieveModel sieveModel,
+        CancellationToken cancellationToken)
     {
-        var aggregateRoot = await GetAggregateQueryable().Where(predicate).ToListAsync();
+        var aggregates = GetAggregateQueryable().AsNoTracking();
+
+        var filteredList = await _sieveProcessor.Apply(sieveModel, aggregates)
+            .ToListAsync(cancellationToken: cancellationToken);
+
+        var total = _sieveProcessor.Apply(sieveModel, aggregates, applySorting: false, applyPagination: false);
 
         return new ListResultsDto<TModel>
         {
-            Items = aggregateRoot.Select(a => _mapper.Map(a)).ToList(),
-            TotalCount = aggregateRoot.Count()
+            Items = filteredList.Select(_mapper.Map).ToList(),
+            TotalCount = await total.CountAsync(cancellationToken: cancellationToken)
         };
     }
 

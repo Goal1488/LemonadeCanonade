@@ -5,6 +5,7 @@ namespace Lemonade.Domain.Entities;
 public class LemonadeSize : IEntity
 {
     public Guid Id { get; set; }
+    public DateTime CreatedOn { get; set; }
     public Guid LemonadeId { get; set; }
     public Lemonade Lemonade { get; set; }
 

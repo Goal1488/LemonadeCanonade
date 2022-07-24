@@ -7,6 +7,7 @@ public class Order : IEntity
     }
 
     public Guid Id { get; set; }
+    public DateTime CreatedOn { get; set; }
 
     public Guid CustomerId { get; set; }
 

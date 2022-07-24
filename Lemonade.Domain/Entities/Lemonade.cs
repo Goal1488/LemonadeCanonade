@@ -10,12 +10,13 @@ public class Lemonade : IEntity
     }
 
     public Guid Id { get; set; }
+    public DateTime CreatedOn { get; set; }
 
     public string Name { get; private set; }
 
     public List<LemonadeSize> AvailableSizes { get; private set; } = new();
 
-    public void SetSize(LemonadeSizeEnum sizeEnum, int price)
+    public void AddOrUpdateSize(LemonadeSizeEnum sizeEnum, int price)
     {
         var lemonadeSize = AvailableSizes.FirstOrDefault(x => x.Size == sizeEnum);
 

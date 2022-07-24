@@ -1,14 +1,13 @@
-namespace Lemonade.Domain.Entities;
+using Lemonade.Api.ViewModels.Lemonade;
 
-public class OrderDetail : IEntity
+namespace Lemonade.Api.ViewModels.Order;
+
+public class OrderDetailViewModel
 {
     public Guid Id { get; set; }
-    public DateTime CreatedOn { get; set; }
-
     public int Quantity { get; set; }
-    public LemonadeSize Size { get; set; }
+    public LemonadeSizeViewModel Size { get; set; }
     public int Price { get; set; }
-    
     public Guid LemonadeId { get; set; }
     public Guid OrderId { get; set; }
 }

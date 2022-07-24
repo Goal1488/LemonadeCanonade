@@ -1,19 +1,18 @@
 ﻿using Lemonade.Application;
 
-namespace Lemonade.Persistence
+namespace Lemonade.Persistence;
+
+public class UnitOfWork : IUnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    private readonly LemonadeContext _cnContext;
+
+    public UnitOfWork(LemonadeContext cnContext)
     {
-        private readonly LemonadeContext _cnContext;
+        _cnContext = cnContext;
+    }
 
-        public UnitOfWork(LemonadeContext cnContext)
-        {
-            _cnContext = cnContext;
-        }
-
-        public Task SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            return _cnContext.SaveChangesAsync(cancellationToken);
-        }
+    public Task SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        return _cnContext.SaveChangesAsync(cancellationToken);
     }
 }
