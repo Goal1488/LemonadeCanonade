@@ -22,4 +22,22 @@ public static class LemonadeSizeMapper
 
         return result;
     }
+    
+    public static LemonadeSizeModel Map(this LemonadeSizeViewModel input)
+    {
+        if (input == null)
+        {
+            return null;
+        }
+
+        var result = new LemonadeSizeModel
+        {
+            Id = input.Id,
+            Size = input.Size,
+            Price = input.Price,
+            LemonadeId = input.LemonadeId,
+        };
+
+        return result;
+    }
 }

@@ -1,4 +1,5 @@
-﻿using Lemonade.Application.Models;
+﻿using Lemonade.Application.Exceptions;
+using Lemonade.Application.Models;
 using Lemonade.Application.Queries;
 using Lemonade.Domain.Shared;
 using Sieve.Models;
@@ -27,15 +28,47 @@ public class LemonadeProvider
             lemonadeEntity.AddOrUpdateSize(lemonadeSize.Size, lemonadeSize.Price);
         }
 
-        LemonadeRepository.Add(lemonadeEntity);
+        await LemonadeRepository.AddAsync(lemonadeEntity, cancellationToken);
 
         await LemonadeRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
         return lemonadeEntity.Id;
+    }
+    
+    public async Task UpdateAsync(Guid lemonadeId, LemonadeModel lemonadeModel, CancellationToken cancellationToken)
+    {
+        var lemonade = await LemonadeRepository.GetAsync(x => x.Id == lemonadeId, cancellationToken);
+
+        if (lemonade == null)
+        {
+            throw new EntityIsNotFoundException();
+        }
+
+        lemonade.Name = lemonadeModel.Name;
+
+        foreach (var lemonadeSize in lemonadeModel.AvailableSizes)
+        {
+            lemonade.AddOrUpdateSize(lemonadeSize.Size, lemonadeSize.Price);
+        }
+
+        await LemonadeRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
     }
 
     public Task<ListResultsDto<LemonadeModel>> GetAsync(SieveModel sieveModel, CancellationToken cancellationToken)
     {
         return LemonadeQueryService.GetAsync(sieveModel, cancellationToken);
     }
+
+    public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
+    {
+        var lemonade = await LemonadeRepository.GetAsync(x => x.Id == id, cancellationToken);
+
+        if (lemonade == null)
+        {
+            throw new EntityIsNotFoundException();
+        }
+
+        LemonadeRepository.Remove(lemonade);
+    }
+    
 }

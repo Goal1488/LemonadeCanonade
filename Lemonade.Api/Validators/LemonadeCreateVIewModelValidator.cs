@@ -3,7 +3,7 @@ using Lemonade.Api.ViewModels.Lemonade;
 
 namespace Lemonade.Api.Validators;
 
-public class LemonadeCreateViewModelValidator : AbstractValidator<LemonadeCreateViewModel>
+public class LemonadeCreateViewModelValidator : AbstractValidator<LemonadeViewModel>
 {
     public LemonadeCreateViewModelValidator()
     {
@@ -20,7 +20,7 @@ public class LemonadeCreateViewModelValidator : AbstractValidator<LemonadeCreate
             .WithMessage("Invalid Name field format. Should be [a-z0-9-]");
     }
 }
-public class LemonadeSizeCreateViewModelValidator : AbstractValidator<LemonadeSizeCreateViewModel>
+public class LemonadeSizeCreateViewModelValidator : AbstractValidator<LemonadeSizeViewModel>
 {
     public LemonadeSizeCreateViewModelValidator()
     {

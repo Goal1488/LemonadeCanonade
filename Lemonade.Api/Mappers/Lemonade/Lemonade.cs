@@ -30,4 +30,21 @@ public static class LemonadeExtensions
 
         return result;
     }
+    
+    public static LemonadeModel Map(this LemonadeViewModel input)
+    {
+        if (input == null)
+        {
+            return null;
+        }
+
+        var result = new LemonadeModel
+        {
+            Id = input.Id,
+            Name = input.Name,
+            AvailableSizes = input.AvailableSizes.Select(x => x.Map()).ToList()
+        };
+
+        return result;
+    }
 }

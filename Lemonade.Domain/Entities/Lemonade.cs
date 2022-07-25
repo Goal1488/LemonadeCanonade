@@ -12,7 +12,7 @@ public class Lemonade : IEntity
     public Guid Id { get; set; }
     public DateTime CreatedOn { get; set; }
 
-    public string Name { get; private set; }
+    public string Name { get; set; }
 
     public List<LemonadeSize> AvailableSizes { get; private set; } = new();
 

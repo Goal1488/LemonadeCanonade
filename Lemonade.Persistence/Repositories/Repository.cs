@@ -16,27 +16,27 @@ public class Repository<T> : IRepository<T> where T : class, IEntity
         LemonadeContext = lemonadeContext ?? throw new ArgumentNullException(nameof(lemonadeContext));
     }
 
-    public void Add(T item)
+    public async Task AddAsync(T item, CancellationToken cancellationToken)
     {
         item.Id = Guid.NewGuid();
         item.CreatedOn = DateTime.UtcNow;
 
-        LemonadeContext.Set<T>().Add(item);
+        await LemonadeContext.Set<T>().AddAsync(item, cancellationToken);
     }
 
-    public Task<bool> Any(Expression<Func<T, bool>> predicate)
+    public Task<bool> AnyAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
     {
-        return LemonadeContext.Set<T>().AnyAsync(predicate);
+        return LemonadeContext.Set<T>().AnyAsync(predicate, cancellationToken: cancellationToken);
     }
 
-    public virtual Task<T?> GetAsync(Expression<Func<T, bool>> predicate)
+    public virtual Task<T?> GetAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
     {
-        return GetAggregateQueryable().FirstOrDefaultAsync(predicate);
+        return GetAggregateQueryable().FirstOrDefaultAsync(predicate, cancellationToken);
     }
 
-    public virtual Task<List<T>> GetListAsync(Expression<Func<T, bool>> predicate)
+    public virtual Task<List<T>> GetListAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
     {
-        return GetAggregateQueryable().Where(predicate).ToListAsync();
+        return GetAggregateQueryable().Where(predicate).ToListAsync(cancellationToken: cancellationToken);
     }
 
     public T Remove(T item)
